@@ -16,7 +16,6 @@ html {
 }
 
 body {
-  height: 70vh;
   width: 50vw;
   display: flex;
   justify-content: center;
@@ -30,7 +29,6 @@ body {
   gap: 30px;
   grid-template-columns: repeat(3, 33%);
   grid-auto-rows: 200px;
-
 }
 
 .book-card {
@@ -78,6 +76,7 @@ body {
 }
 
 .book-button-list > * {
+  cursor: pointer;
   height: 100%;
   flex: 1;
   border-radius: 15px;
@@ -86,13 +85,26 @@ body {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  box-shadow: 4px 5px 5px -3px hsl(0, 0%, 75%);
-  -webkit-box-shadow: 4px 5px 5px -3px hsl(0, 0%, 75%); 
+  transition-duration: 0.2s;
+}
+
+.book-button-list > *:hover {
+  box-shadow: 4px 5px 3px -3px hsl(0, 0%, 65%);
+  -webkit-box-shadow: 4px 5px 3px -3px hsl(0, 0%, 65%); 
+  transition-duration: 0.2s;
+}
+
+.book-button-list > *:active {
+  box-shadow: 3px 4px 2px -3px hsl(0, 0%, 45%);
+  -webkit-box-shadow: 3px 4px 2px -3px hsl(0, 0%, 45%);
+  transition-duration: 0.2s;
+  transform: translate(0, 2px);
 }
 
 .mark-book-button {
   background-color: rgb(0, 110, 255);
 }
+
 
 .delete-book-button {
   background-color: rgb(185, 28, 28);
@@ -107,4 +119,139 @@ body {
   height: 22px;
   width: 22px;
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(247deg) brightness(105%) contrast(101%);
+}
+
+.read {
+  background-color: #fffcfc;
+  border: 1px solid rgb(0, 110, 255);
+}
+
+.read > span {
+  color: rgb(0, 110, 255);
+  font-size: 13.5px;
+}
+
+.read > img {
+  height: 22px;
+  width: 22px;
+  filter: brightness(0) saturate(100%) invert(33%) sepia(69%) saturate(5534%) hue-rotate(207deg) brightness(102%) contrast(106%);
+}
+
+.add-book {
+  margin-top: 70px;
+  cursor: pointer;
+  align-self: center;
+  height: 200px;
+  width: 80%;
+  border-radius: 90px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgreen;
+  gap: 30px;
+  box-shadow: 8px 9px 5px -3px hsl(0, 0%, 35%);
+  -webkit-box-shadow: 8px 9px 5px -3px hsl(0, 0%, 35%);
+  font-size: 60px;
+  font-weight: 900;  
+}
+
+.add-book:hover {
+  background-color: rgb(46, 151, 46);
+  color: #fffcfc;
+  transition-duration: .1s;
+}
+
+.add-book:active {
+  transform: translate(0, 6px);
+}
+
+.add-book > img {
+  height: 110px;
+  width: 110px;
+}
+
+.add-book:hover > img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(247deg) brightness(105%) contrast(101%);
+}
+
+::backdrop {
+  background-color: gray;
+  opacity: 0.75;
+}
+
+#dialog {
+  width: 20%;
+  height: 35%;
+  margin: auto;
+  padding: 1rem;
+  background-color: #fffcfc;
+  border: 1px solid hsl(0, 0%, 45%);
+  border-radius: 15px;
+}
+
+#dialog > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+#dialog > form > span {
+  font-size: 36px;
+  margin-top: 27px;
+  font-weight: 500;
+}
+
+.form-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 18px;
+}
+
+.form-block > input {
+  font-size: 18px;
+}
+
+.add-book-button-list {
+  margin-top: 20px;
+  display: flex;
+  gap: 30px;
+}
+
+.add-book-button-list > button {
+  cursor: pointer;
+  flex: 1;
+  border-radius: 50px;
+  border: none;
+  transition-duration: 0.2s;
+  width: 175px;
+  height: 52px;
+  font-size: 25px;
+  font-weight: 500;
+  background-color: rgb(185, 28, 28);
+  color: #fffcfc;
+}
+
+#add-button {
+  background-color: rgb(0, 110, 255);
+}
+
+.add-book-button-list > button:hover {
+  box-shadow: 4px 5px 3px -3px hsl(0, 0%, 65%);
+  -webkit-box-shadow: 4px 5px 3px -3px hsl(0, 0%, 65%); 
+  transition-duration: 0.2s;
+}
+
+.add-book-button-list > button:active {
+  box-shadow: 3px 4px 2px -3px hsl(0, 0%, 45%);
+  -webkit-box-shadow: 3px 4px 2px -3px hsl(0, 0%, 45%);
+  transition-duration: 0.2s;
+  transform: translate(0, 2px);
+}
+
+body:has(dialog[open]) {
+  filter: blur(10px);
 }
